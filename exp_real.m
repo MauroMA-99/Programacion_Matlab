@@ -1,5 +1,5 @@
 % -------------------------------------------------------------
-% Secuencia Exponencial Real 
+% Secuencia Exponencial Real Discreta
 %  x[n]= Aα^(n)
 % -------------------------------------------------------------
 A=2; % A: Amplitud

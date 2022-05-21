@@ -1,19 +1,18 @@
 % ----------------------------------------------------
-% Laboratorio N° 2: Ejercicio 2.12
-% (j*nn/4)
-% Función exponencial compleja: x = Ae
+% Función exponencial compleja: x = A*e^(j*nn/4)
 % ----------------------------------------------------
 
-nn = 0:25;
-A=1;
-xn = A*exp(j*nn/4);
+n = -25:25;
+A=1.5;
+alfa=1;
+xn = A*alfa.^(n).*exp(j*n/4);
 subplot(211);
-stem(nn, real(xn),'r');
+stem(n, real(xn),'r','linewidth',2);
 grid on;
 title('Parte Real de x[n]');
 xlabel(' n ');
-subplot (212);
-stem (nn, imag(xn),'b');
+subplot(212);
+stem (n, imag(xn),'b','linewidth',2);
 grid on;
 title ('Parte Imaginaria de x[n]');
 xlabel ('n');
