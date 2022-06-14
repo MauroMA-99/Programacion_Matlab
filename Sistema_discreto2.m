@@ -1,9 +1,8 @@
-clear;clf;clc;
+clear;
+%clf;clc;
 % ----------------------------------------------------
 % Filtro Promedio 
 % Móvil de M puntos.
-% M=5:
-% y[n]=(1/M)*(x[n]+x[n-1]+x[n-2]+x[n-3]+x[n-4])
 % ----------------------------------------------------
 
 % Generación de la señal discreta de entrada
@@ -16,10 +15,23 @@ s = cos(2*pi*f*n); % Sinusoide de baja frecuencia
 r = (rand(1,N)-0.5)/2; % Secuencia de ruido
 x = s+r;
 % Implementación del Filtro Promedio Móvil
-M = 5; % Longitud de datos deseado
-b = ones(1,M);
-a=1;
-y = filter(b,a,x)/M; % Cálculo del Promedio Móvil 
+M = 3; % Longitud de datos deseado
+
+y=zeros(1,N);
+
+for i=1:1:N
+    
+    if i==1
+        y(i) = x(i)/M;
+    elseif i==2
+        y(i) = (x(i)+x(i-1))/M;
+   % elseif i==3
+    %    y(i) = (x(i)+x(i-1)+x(i-2))/M;
+    else
+         y(i) = (x(i)+x(i-1)+x(i-2))/M; % Cálculo del Promedio Móvil 
+    end
+end
+
 % utilizando la función filter
 % Presentación de la señal discreta de la entrada y salida 
 
